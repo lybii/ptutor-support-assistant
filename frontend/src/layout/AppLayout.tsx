@@ -186,8 +186,10 @@ export function AppLayout() {
       </aside>
       <div className="app-main">
         <header className="app-topbar">
-          <span className="app-topbar-role">{ROLE_LABELS[user.role]}</span>
-          <div className="app-topbar-actions">{isLearner && <NotificationBell basePath={basePath} />}</div>
+          <div className="app-topbar-inner">
+            <span className="app-topbar-role">{ROLE_LABELS[user.role]}</span>
+            <div className="app-topbar-actions">{isLearner && <NotificationBell basePath={basePath} />}</div>
+          </div>
         </header>
         <main className="app-content">
           <Outlet />

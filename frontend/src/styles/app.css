@@ -64,7 +64,7 @@ textarea {
   color: inherit;
 }
 
-input,
+input:not([type='checkbox']):not([type='radio']),
 select,
 textarea {
   border: 1px solid var(--border-strong);
@@ -77,7 +77,7 @@ textarea {
     box-shadow 0.15s;
 }
 
-input:focus,
+input:not([type='checkbox']):not([type='radio']):focus,
 select:focus,
 textarea:focus {
   border-color: var(--purple-500);
@@ -255,7 +255,6 @@ textarea:focus {
   align-items: center;
   gap: 16px;
   height: 64px;
-  padding: 0 32px;
   background: rgba(246, 245, 250, 0.85);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
@@ -309,8 +308,20 @@ textarea:focus {
 
 .app-content {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1440px;
+  margin: 0 auto;
   padding: 28px 32px 96px;
+}
+
+.app-topbar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 32px;
 }
 
 /* ================================================================ Đăng nhập */
@@ -829,7 +840,7 @@ a.cell-title:hover {
   .app-content {
     padding: 20px 16px 96px;
   }
-  .app-topbar {
+  .app-topbar-inner {
     padding: 0 16px;
   }
   .login-page {
@@ -844,4 +855,13 @@ a.cell-title:hover {
 .assistant-fab {
   display: grid;
   place-items: center;
+}
+
+input[type='checkbox'],
+input[type='radio'] {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--purple-700);
+  cursor: pointer;
 }

@@ -5,8 +5,8 @@
       "body": {
         "tutorId": "t1",
         "userId": "33333333-3333-3333-3333-000000000003",
-        "email": "tutor-should-be-filtered@example.com",
-        "firstName": "Bình",
+        "email": "giasu@ptutor.demo",
+        "firstName": "An",
         "lastName": "Trần",
         "phone": "0987654321",
         "gender": "FEMALE",
@@ -157,11 +157,11 @@
             "studentId": "a0000000-0000-4000-8000-0000000000aa",
             "studentFirstName": "Lan",
             "studentLastName": "Nguyễn",
-            "studentEmail": "should-be-filtered@example.com",
+            "studentEmail": "hocvien@ptutor.demo",
             "tutorId": "b0000000-0000-4000-8000-0000000000bb",
             "tutorFirstName": "An",
             "tutorLastName": "Trần",
-            "tutorEmail": "tutor-should-be-filtered@example.com",
+            "tutorEmail": "giasu@ptutor.demo",
             "subjectId": "s1",
             "subjectName": "Toán",
             "gradeId": "g1",
@@ -193,11 +193,11 @@
             "studentId": "a0000000-0000-4000-8000-0000000000aa",
             "studentFirstName": "Lan",
             "studentLastName": "Nguyễn",
-            "studentEmail": "should-be-filtered@example.com",
+            "studentEmail": "hocvien@ptutor.demo",
             "tutorId": "b0000000-0000-4000-8000-0000000000bb",
-            "tutorFirstName": "Bình",
+            "tutorFirstName": "An",
             "tutorLastName": "Trần",
-            "tutorEmail": "tutor-should-be-filtered@example.com",
+            "tutorEmail": "giasu@ptutor.demo",
             "subjectId": "s1",
             "subjectName": "Tiếng Anh",
             "gradeId": "g1",
@@ -349,7 +349,7 @@
             "rejectionReason": null,
             "completedAt": null,
             "createdAt": "2026-10-17T10:00:00",
-            "bankAccountNumber": "should-be-filtered-0011223344"
+            "bankAccountNumber": "•••• 3344"
           }
         ],
         "page": 0,
@@ -383,7 +383,7 @@
             "rejectionReason": null,
             "reviewedAt": null,
             "createdAt": "2026-10-19T08:00:00",
-            "studentEmail": "should-be-filtered@example.com"
+            "studentEmail": "hocvien@ptutor.demo"
           }
         ],
         "page": 0,

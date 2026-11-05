@@ -100,7 +100,7 @@ h2.admin-section-heading {
   font-weight: 500;
 }
 
-.admin-field input,
+.admin-field input:not([type='checkbox']):not([type='radio']),
 .admin-field select,
 .admin-field textarea {
   width: 100%;
@@ -363,4 +363,46 @@ h2.admin-section-heading {
 
 .kb-inline select {
   height: 38px;
+}
+
+/* Nhóm checkbox trong trình soạn tài liệu */
+fieldset.admin-field {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+fieldset.admin-field > legend {
+  margin-bottom: 8px;
+  padding: 0;
+  color: var(--ink-2);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.kb-checks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.kb-checks > label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink-2);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.kb-checks > label:has(input:checked) {
+  border-color: var(--purple-500);
+  background: var(--purple-50);
+  color: var(--purple-800);
 }
