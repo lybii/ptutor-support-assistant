@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import { StatusBadge } from '../admin/components/AdminUi';
-import { formatDate, formatDateTime, formatMoney, type StatusMeta } from '../admin/adminFormat';
+import { formatDate, formatDateTime, formatMoney, formatTime, type StatusMeta } from '../admin/adminFormat';
 import type { Row } from '../../services/accountApi';
 
 const STATUS: Record<string, StatusMeta> = {
@@ -47,6 +47,7 @@ export function text(value: unknown): string {
 export const money = (value: unknown) => formatMoney(typeof value === 'number' ? value : null);
 export const day = (value: unknown) => formatDate(typeof value === 'string' ? value : null);
 export const moment = (value: unknown) => formatDateTime(typeof value === 'string' ? value : null);
+export const clock = (value: unknown) => formatTime(typeof value === 'string' ? value : null);
 
 export function personName(row: Row, prefix: 'student' | 'tutor'): string {
   return [row[`${prefix}LastName`], row[`${prefix}FirstName`]].filter(Boolean).join(' ') || '—';
@@ -55,17 +56,20 @@ export function personName(row: Row, prefix: 'student' | 'tutor'): string {
 export interface Column {
   header: string;
   render: (row: Row) => ReactNode;
+  align?: 'right';
 }
 
 export function RecordTable({ rows, columns, empty }: { rows: Row[]; columns: Column[]; empty: string }) {
-  if (rows.length === 0) return <p className="muted">{empty}</p>;
+  if (rows.length === 0) return <div className="empty-state">{empty}</div>;
   return (
-    <div className="admin-table-wrap">
+    <div className="table-wrap">
       <table className="data-table">
         <thead>
           <tr>
             {columns.map((column) => (
-              <th key={column.header}>{column.header}</th>
+              <th key={column.header} style={column.align ? { textAlign: column.align } : undefined}>
+                {column.header}
+              </th>
             ))}
           </tr>
         </thead>
@@ -73,7 +77,9 @@ export function RecordTable({ rows, columns, empty }: { rows: Row[]; columns: Co
           {rows.map((row, index) => (
             <tr key={String(row.id ?? row.transactionId ?? row.withdrawalId ?? index)}>
               {columns.map((column) => (
-                <td key={column.header}>{column.render(row)}</td>
+                <td key={column.header} className={column.align ? 'num' : undefined} style={column.align ? { textAlign: column.align } : undefined}>
+                  {column.render(row)}
+                </td>
               ))}
             </tr>
           ))}

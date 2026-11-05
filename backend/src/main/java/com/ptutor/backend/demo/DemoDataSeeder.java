@@ -46,7 +46,7 @@ public class DemoDataSeeder implements ApplicationRunner {
             new DemoUser(STUDENT_ID, "hocvien@ptutor.demo", "Lan", "Nguyễn", "STUDENT", null, false),
             new DemoUser(TUTOR_ID, "giasu@ptutor.demo", "An", "Trần", "TUTOR", null, false),
             new DemoUser(SUPPORT_ID, "hotro@ptutor.demo", "Minh", "Phạm", "EMPLOYEE", "CUSTOMER_SERVICE", true),
-            new DemoUser(ADMIN_ID, "admin@ptutor.demo", "Quản trị", "viên", "ADMIN", null, true));
+            new DemoUser(ADMIN_ID, "admin@ptutor.demo", "Quang", "Đỗ", "ADMIN", null, true));
 
     private static final List<DemoNotification> NOTIFICATIONS = List.of(
             new DemoNotification(STUDENT_ID, "Kỳ học phí sắp đến hạn",

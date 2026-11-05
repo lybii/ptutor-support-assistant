@@ -1,36 +1,45 @@
-/* Danh sách, thẻ và nút dùng chung cho trang yêu cầu hỗ trợ. */
+/* Danh sách, thẻ, nút và nhãn trạng thái dùng chung (trang yêu cầu hỗ trợ, trang quản trị). */
 .rf-page {
   display: grid;
-  gap: 16px;
+  gap: 18px;
 }
 
 .rf-card {
-  padding: 20px;
+  padding: 22px 24px;
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: var(--radius);
   background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.rf-card > h2 {
+  margin: 0 0 14px;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .rf-rows {
   display: grid;
+  margin: 4px -24px -22px;
 }
 
 .rf-row {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   gap: 16px;
-  padding: 14px 4px;
-  border-bottom: 1px solid var(--border);
+  padding: 15px 24px;
+  border-top: 1px solid var(--border);
   color: inherit;
-  text-decoration: none;
 }
 
-.rf-row:last-child {
-  border-bottom: 0;
+.rf-link-row {
+  transition: background 0.15s;
 }
 
 .rf-link-row:hover {
-  background: var(--purple-50);
+  background: #fbf9ff;
+  color: inherit;
 }
 
 .rf-row-main {
@@ -39,50 +48,78 @@
   min-width: 0;
 }
 
+.rf-row-main strong {
+  font-weight: 600;
+}
+
+.rf-row-main small {
+  color: var(--muted);
+  font-size: 13px;
+}
+
 .rf-row-side {
-  display: grid;
-  justify-items: end;
-  gap: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  flex: none;
   color: var(--muted);
   font-size: 13px;
   white-space: nowrap;
 }
 
-.rf-badge {
-  display: inline-block;
-  padding: 3px 10px;
+/* ---------------------------------------------------------------- Nhãn trạng thái */
+.rf-badge,
+.admin-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  height: 24px;
+  padding: 0 10px;
   border-radius: 999px;
   font-size: 12px;
   font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.rf-badge::before,
+.admin-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
 }
 
 .rf-badge-pending,
 .admin-badge-pending {
-  background: #fff3df;
+  background: var(--amber-bg);
   color: var(--amber);
 }
 
 .rf-badge-success,
 .admin-badge-success {
-  background: #e3f6ea;
+  background: var(--green-bg);
   color: var(--green);
 }
 
 .rf-badge-danger,
 .admin-badge-danger {
-  background: #fde8ea;
+  background: var(--red-bg);
   color: var(--red);
 }
 
 .rf-badge-neutral,
 .admin-badge-neutral {
-  background: #efedf3;
+  background: #f0eef5;
   color: var(--muted);
 }
 
 .rf-badge-info,
 .admin-badge-info {
-  background: #e5eefc;
+  background: var(--blue-bg);
   color: var(--blue);
 }
 
@@ -92,9 +129,11 @@
   color: var(--purple-800);
 }
 
+/* ---------------------------------------------------------------- Nút */
 .rf-actions {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 10px;
 }
 
@@ -103,68 +142,113 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  padding: 9px 16px;
+  gap: 8px;
+  height: 40px;
+  padding: 0 18px;
   border: 1px solid var(--purple-700);
   border-radius: 10px;
   background: var(--purple-700);
   color: #fff;
+  font-size: 14px;
   font-weight: 600;
-  text-decoration: none;
+  white-space: nowrap;
   cursor: pointer;
+  box-shadow: 0 1px 2px rgba(76, 34, 171, 0.2);
+  transition:
+    background 0.15s,
+    border-color 0.15s,
+    color 0.15s;
+}
+
+.rf-button:hover:not(:disabled),
+.admin-button:hover:not(:disabled) {
+  border-color: var(--purple-800);
+  background: var(--purple-800);
+  color: #fff;
 }
 
 .rf-button:disabled,
 .admin-button:disabled {
-  opacity: 0.55;
+  opacity: 0.5;
   cursor: not-allowed;
 }
 
 .rf-button.secondary,
 .admin-button.secondary {
+  border-color: var(--border-strong);
   background: var(--surface);
+  color: var(--ink-2);
+  box-shadow: none;
+}
+
+.rf-button.secondary:hover:not(:disabled),
+.admin-button.secondary:hover:not(:disabled) {
+  border-color: var(--purple-500);
+  background: var(--purple-50);
   color: var(--purple-700);
+}
+
+.rf-button.secondary[aria-pressed='true'] {
+  border-color: var(--purple-700);
+  background: var(--purple-700);
+  color: #fff;
 }
 
 .rf-button.danger-outline,
 .admin-button.danger-outline {
-  border-color: var(--red);
+  border-color: #f1c2c9;
   background: var(--surface);
+  color: var(--red);
+  box-shadow: none;
+}
+
+.rf-button.danger-outline:hover:not(:disabled),
+.admin-button.danger-outline:hover:not(:disabled) {
+  border-color: var(--red);
+  background: var(--red-bg);
   color: var(--red);
 }
 
 .rf-button.small,
 .admin-button.small {
-  padding: 6px 12px;
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 8px;
   font-size: 13px;
 }
 
+/* ---------------------------------------------------------------- Thông báo trên trang */
 .rf-alert,
 .admin-alert {
-  padding: 12px 14px;
+  padding: 12px 16px;
+  border: 1px solid var(--purple-100);
   border-radius: 12px;
   background: var(--purple-50);
+  font-size: 14px;
 }
 
 .rf-alert-danger,
 .admin-alert-danger {
-  background: #fde8ea;
+  border-color: #f6cbd1;
+  background: var(--red-bg);
   color: var(--red);
 }
 
 .admin-alert-warning {
-  background: #fff3df;
+  border-color: #f5dcb0;
+  background: var(--amber-bg);
   color: var(--amber);
 }
 
 .admin-alert-success {
-  background: #e3f6ea;
+  border-color: #bde6d3;
+  background: var(--green-bg);
   color: var(--green);
 }
 
 .rf-state,
 .admin-state {
-  padding: 28px;
+  padding: 40px 16px;
   color: var(--muted);
   text-align: center;
 }

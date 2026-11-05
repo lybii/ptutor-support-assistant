@@ -7,6 +7,7 @@ import { getSuggestions, isAssistantEnabled } from '../../services/assistantApi'
 import { AssistantPanel } from './AssistantPanel';
 import type { SupportSource } from './supportSource';
 import { useAssistant } from './useAssistant';
+import { Icon } from '../icons';
 import './assistant.css';
 
 export interface SupportDraft {
@@ -65,7 +66,7 @@ function AssistantWidgetForUser({ userId, role, renderSupportDialog }: Props & {
         aria-expanded={open}
         onClick={() => setOpen((value) => !value)}
       >
-        {open ? '×' : '?'}
+        {open ? <Icon name="arrow-right" size={22} style={{ transform: 'rotate(90deg)' }} /> : <Icon name="chat" size={26} />}
       </button>
     </div>
   );

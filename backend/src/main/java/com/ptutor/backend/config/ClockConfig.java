@@ -10,6 +10,7 @@ public class ClockConfig {
 
     @Bean
     public Clock clock() {
-        return Clock.systemDefaultZone();
+        // UTC: SupportRequestService ghi assignedAt/answeredAt theo clock và đổi createdAt (giờ JVM) về UTC khi tính thống kê.
+        return Clock.systemUTC();
     }
 }

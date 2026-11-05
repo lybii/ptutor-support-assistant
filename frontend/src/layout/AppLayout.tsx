@@ -1,49 +1,94 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
+import type { CurrentUser } from '../auth/authStorage';
 import { useAuth } from '../auth/useAuth';
 import { AssistantWidget } from '../components/assistant/AssistantWidget';
 import { SupportRequestDialog } from '../components/assistant/SupportRequestDialog';
+import { Icon, type IconName } from '../components/icons';
 import { endAssistantConversationOnLogout } from '../services/assistantApi';
 import { getUnreadCount } from '../services/accountApi';
 
 interface NavItem {
   to: string;
   label: string;
+  icon: IconName;
   end?: boolean;
 }
 
-const STUDENT_NAV: NavItem[] = [
-  { to: '/student', label: 'Tổng quan', end: true },
-  { to: '/student/contracts', label: 'Hợp đồng' },
-  { to: '/student/studying-requests', label: 'Tin tìm gia sư' },
-  { to: '/student/applications', label: 'Đơn ứng tuyển' },
-  { to: '/student/refund-requests', label: 'Hoàn tiền' },
-  { to: '/student/wallet', label: 'Ví' },
-  { to: '/student/notifications', label: 'Thông báo' },
-  { to: '/student/support-requests', label: 'Yêu cầu hỗ trợ' },
-  { to: '/student/profile', label: 'Hồ sơ' }
+interface NavGroup {
+  label?: string;
+  items: NavItem[];
+}
+
+const STUDENT_NAV: NavGroup[] = [
+  { items: [{ to: '/student', label: 'Tổng quan', icon: 'home', end: true }] },
+  {
+    label: 'Học tập',
+    items: [
+      { to: '/student/contracts', label: 'Hợp đồng', icon: 'contract' },
+      { to: '/student/studying-requests', label: 'Tin tìm gia sư', icon: 'search' },
+      { to: '/student/applications', label: 'Đơn ứng tuyển', icon: 'send' }
+    ]
+  },
+  {
+    label: 'Tài chính',
+    items: [
+      { to: '/student/wallet', label: 'Ví', icon: 'wallet' },
+      { to: '/student/refund-requests', label: 'Hoàn tiền', icon: 'refund' }
+    ]
+  },
+  {
+    label: 'Tài khoản',
+    items: [
+      { to: '/student/notifications', label: 'Thông báo', icon: 'bell' },
+      { to: '/student/support-requests', label: 'Yêu cầu hỗ trợ', icon: 'support' },
+      { to: '/student/profile', label: 'Hồ sơ', icon: 'user' }
+    ]
+  }
 ];
 
-const TUTOR_NAV: NavItem[] = [
-  { to: '/tutor', label: 'Tổng quan', end: true },
-  { to: '/tutor/contracts', label: 'Hợp đồng' },
-  { to: '/tutor/proposals', label: 'Đề nghị dạy' },
-  { to: '/tutor/certificates', label: 'Chứng chỉ' },
-  { to: '/tutor/refund-requests', label: 'Hoàn tiền' },
-  { to: '/tutor/wallet', label: 'Ví' },
-  { to: '/tutor/notifications', label: 'Thông báo' },
-  { to: '/tutor/support-requests', label: 'Yêu cầu hỗ trợ' },
-  { to: '/tutor/profile', label: 'Hồ sơ' }
+const TUTOR_NAV: NavGroup[] = [
+  { items: [{ to: '/tutor', label: 'Tổng quan', icon: 'home', end: true }] },
+  {
+    label: 'Giảng dạy',
+    items: [
+      { to: '/tutor/contracts', label: 'Hợp đồng', icon: 'contract' },
+      { to: '/tutor/proposals', label: 'Đề nghị dạy', icon: 'send' },
+      { to: '/tutor/certificates', label: 'Chứng chỉ', icon: 'award' }
+    ]
+  },
+  {
+    label: 'Tài chính',
+    items: [
+      { to: '/tutor/wallet', label: 'Ví', icon: 'wallet' },
+      { to: '/tutor/refund-requests', label: 'Hoàn tiền', icon: 'refund' }
+    ]
+  },
+  {
+    label: 'Tài khoản',
+    items: [
+      { to: '/tutor/notifications', label: 'Thông báo', icon: 'bell' },
+      { to: '/tutor/support-requests', label: 'Yêu cầu hỗ trợ', icon: 'support' },
+      { to: '/tutor/profile', label: 'Hồ sơ', icon: 'user' }
+    ]
+  }
 ];
 
-const ADMIN_NAV: NavItem[] = [
-  { to: '/admin/assistant/documents', label: 'Kho tri thức' },
-  { to: '/admin/assistant/unanswered', label: 'Câu hỏi chưa trả lời' },
-  { to: '/admin/assistant/stats', label: 'Thống kê trợ lý' },
-  { to: '/admin/support-requests', label: 'Yêu cầu hỗ trợ' }
+const ADMIN_NAV: NavGroup[] = [
+  {
+    label: 'Trợ lý',
+    items: [
+      { to: '/admin/assistant/documents', label: 'Kho tri thức', icon: 'book' },
+      { to: '/admin/assistant/unanswered', label: 'Câu hỏi chưa trả lời', icon: 'question' },
+      { to: '/admin/assistant/stats', label: 'Thống kê', icon: 'chart' }
+    ]
+  },
+  { label: 'Hỗ trợ', items: [{ to: '/admin/support-requests', label: 'Yêu cầu hỗ trợ', icon: 'support' }] }
 ];
 
-const EMPLOYEE_NAV: NavItem[] = [{ to: '/admin/support-requests', label: 'Yêu cầu hỗ trợ' }];
+const EMPLOYEE_NAV: NavGroup[] = [
+  { label: 'Hỗ trợ', items: [{ to: '/admin/support-requests', label: 'Yêu cầu hỗ trợ', icon: 'support' }] }
+];
 
 const ROLE_LABELS: Record<string, string> = {
   STUDENT: 'Học viên',
@@ -52,11 +97,21 @@ const ROLE_LABELS: Record<string, string> = {
   ADMIN: 'Quản trị viên'
 };
 
-function navFor(role: string): NavItem[] {
+function navFor(role: string): NavGroup[] {
   if (role === 'STUDENT') return STUDENT_NAV;
   if (role === 'TUTOR') return TUTOR_NAV;
   if (role === 'ADMIN') return ADMIN_NAV;
   return EMPLOYEE_NAV;
+}
+
+export function displayName(user: Pick<CurrentUser, 'firstName' | 'lastName' | 'email'>): string {
+  return [user.lastName, user.firstName].filter(Boolean).join(' ') || user.email;
+}
+
+export function initials(user: Pick<CurrentUser, 'firstName' | 'lastName' | 'email'>): string {
+  const parts = [user.lastName, user.firstName].filter(Boolean) as string[];
+  const letters = parts.length ? parts.map((part) => part.trim()[0]) : [user.email[0]];
+  return letters.slice(-2).join('').toUpperCase();
 }
 
 function NotificationBell({ basePath }: { basePath: string }) {
@@ -73,8 +128,8 @@ function NotificationBell({ basePath }: { basePath: string }) {
 
   return (
     <Link className="app-bell" to={`${basePath}/notifications`} aria-label={`Thông báo, ${count} chưa đọc`}>
-      🔔
-      {count > 0 && <span className="app-bell-count">{count}</span>}
+      <Icon name="bell" />
+      {count > 0 && <span className="app-bell-count">{count > 9 ? '9+' : count}</span>}
     </Link>
   );
 }
@@ -92,7 +147,6 @@ export function AppLayout() {
   if (!user) return null;
   const isLearner = user.role === 'STUDENT' || user.role === 'TUTOR';
   const basePath = user.role === 'TUTOR' ? '/tutor' : '/student';
-  const fullName = [user.lastName, user.firstName].filter(Boolean).join(' ') || user.email;
 
   return (
     <div className="app-shell">
@@ -101,27 +155,39 @@ export function AppLayout() {
           <span className="app-brand-mark">P</span>
           PTutor
         </Link>
-        {navFor(user.role).map((item) => (
-          <NavLink
-            key={item.to}
-            to={item.to}
-            end={item.end}
-            className={({ isActive }) => (isActive ? 'app-nav-link active' : 'app-nav-link')}
-          >
-            {item.label}
-          </NavLink>
-        ))}
+        <nav className="app-nav" aria-label="Điều hướng chính">
+          {navFor(user.role).map((group, index) => (
+            <div key={group.label ?? index} style={{ display: 'contents' }}>
+              {group.label && <div className="app-nav-label">{group.label}</div>}
+              {group.items.map((item) => (
+                <NavLink
+                  key={item.to}
+                  to={item.to}
+                  end={item.end}
+                  className={({ isActive }) => (isActive ? 'app-nav-link active' : 'app-nav-link')}
+                >
+                  <Icon name={item.icon} />
+                  {item.label}
+                </NavLink>
+              ))}
+            </div>
+          ))}
+        </nav>
+        <div className="app-user-card">
+          <span className="app-avatar">{initials(user)}</span>
+          <span className="app-user-text">
+            <strong>{displayName(user)}</strong>
+            <small>{ROLE_LABELS[user.role]}</small>
+          </span>
+          <button type="button" className="app-icon-button" onClick={onLogout} aria-label="Đăng xuất" title="Đăng xuất">
+            <Icon name="logout" />
+          </button>
+        </div>
       </aside>
       <div className="app-main">
         <header className="app-topbar">
-          {isLearner && <NotificationBell basePath={basePath} />}
-          <div className="app-user">
-            <strong>{fullName}</strong>
-            <small>{ROLE_LABELS[user.role]}</small>
-          </div>
-          <button type="button" className="app-logout" onClick={onLogout}>
-            Đăng xuất
-          </button>
+          <span className="app-topbar-role">{ROLE_LABELS[user.role]}</span>
+          <div className="app-topbar-actions">{isLearner && <NotificationBell basePath={basePath} />}</div>
         </header>
         <main className="app-content">
           <Outlet />

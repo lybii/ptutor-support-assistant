@@ -4,10 +4,10 @@ import { homePathFor, useAuth } from '../auth/useAuth';
 import { ApiError } from '../services/httpClient';
 
 const DEMO_ACCOUNTS = [
-  { email: 'hocvien@ptutor.demo', label: 'Học viên' },
-  { email: 'giasu@ptutor.demo', label: 'Gia sư' },
-  { email: 'hotro@ptutor.demo', label: 'Nhân viên hỗ trợ' },
-  { email: 'admin@ptutor.demo', label: 'Quản trị viên' }
+  { email: 'hocvien@ptutor.demo', label: 'Học viên', short: 'HV' },
+  { email: 'giasu@ptutor.demo', label: 'Gia sư', short: 'GS' },
+  { email: 'hotro@ptutor.demo', label: 'Nhân viên hỗ trợ', short: 'NV' },
+  { email: 'admin@ptutor.demo', label: 'Quản trị viên', short: 'QT' }
 ];
 
 export function LoginPage() {
@@ -40,40 +40,67 @@ export function LoginPage() {
 
   return (
     <div className="login-page">
-      <div className="login-card">
-        <div className="app-brand" style={{ margin: 0 }}>
+      <section className="login-hero" aria-hidden="true">
+        <div className="app-brand">
           <span className="app-brand-mark">P</span>
           PTutor
         </div>
-        <h1>Đăng nhập</h1>
-        <form className="login-form" onSubmit={(event) => void submit(event)}>
-          <label>
-            Email
-            <input type="email" value={email} onChange={(event) => setEmail(event.target.value)} required />
-          </label>
-          <label>
-            Mật khẩu
-            <input
-              type="password"
-              value={password}
-              onChange={(event) => setPassword(event.target.value)}
-              required
-            />
-          </label>
-          {error && <div className="admin-alert admin-alert-danger">{error}</div>}
-          <button className="admin-button" type="submit" disabled={busy}>
-            {busy ? 'Đang đăng nhập…' : 'Đăng nhập'}
-          </button>
-        </form>
-        <div className="login-accounts">
-          {DEMO_ACCOUNTS.map((account) => (
-            <button key={account.email} type="button" className="login-account" onClick={() => setEmail(account.email)}>
-              <strong>{account.label}</strong>
-              <span>{account.email}</span>
-            </button>
-          ))}
+        <h2>Trợ lý hỗ trợ cho học viên và gia sư</h2>
+        <div className="login-chat">
+          <div className="login-bubble mine">Làm sao để yêu cầu hoàn tiền?</div>
+          <div className="login-bubble bot">Ở trang Buổi học, bấm Yêu cầu hoàn tiền. [1]</div>
+          <div className="login-bubble mine">Số dư ví của tôi là bao nhiêu?</div>
+          <div className="login-bubble bot">250.000 ₫</div>
         </div>
-      </div>
+      </section>
+      <section className="login-panel">
+        <div className="login-card">
+          <h1>Đăng nhập</h1>
+          <form className="login-form" onSubmit={(event) => void submit(event)}>
+            <label>
+              Email
+              <input
+                type="email"
+                autoComplete="username"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+                required
+              />
+            </label>
+            <label>
+              Mật khẩu
+              <input
+                type="password"
+                autoComplete="current-password"
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+                required
+              />
+            </label>
+            {error && <div className="admin-alert admin-alert-danger">{error}</div>}
+            <button className="admin-button" type="submit" disabled={busy}>
+              {busy ? 'Đang đăng nhập…' : 'Đăng nhập'}
+            </button>
+          </form>
+          <div className="login-divider">Tài khoản demo</div>
+          <div className="login-accounts">
+            {DEMO_ACCOUNTS.map((account) => (
+              <button
+                key={account.email}
+                type="button"
+                className={email === account.email ? 'login-account selected' : 'login-account'}
+                onClick={() => setEmail(account.email)}
+              >
+                <span className="app-avatar">{account.short}</span>
+                <span>
+                  <strong>{account.label}</strong>
+                  <span>{account.email}</span>
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
