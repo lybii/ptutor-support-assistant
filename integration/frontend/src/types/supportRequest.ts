@@ -1,4 +1,4 @@
-// Kiểu dữ liệu yêu cầu hỗ trợ — theo docs/support-chatbot/14-yeu-cau-ho-tro.md mục 14.4, 14.5.
+// Kiểu dữ liệu yêu cầu hỗ trợ — theo docs/14-yeu-cau-ho-tro.md mục 14.4, 14.5.
 import type { SupportSource } from '../components/assistant/supportSource';
 
 export type SupportRequestStatus = 'OPEN' | 'IN_PROGRESS' | 'ANSWERED' | 'CLOSED' | 'CANCELLED';

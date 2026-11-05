@@ -1,5 +1,5 @@
 // Chi tiết yêu cầu hỗ trợ cho nhân viên: câu hỏi, đoạn hội thoại (nếu người dùng đồng ý đính kèm), người gửi,
-// yêu cầu trước; nhận xử lý / trả lại hàng chờ / trả lời (docs/support-chatbot/14-yeu-cau-ho-tro.md mục 14.5, 14.6).
+// yêu cầu trước; nhận xử lý / trả lại hàng chờ / trả lời (docs/14-yeu-cau-ho-tro.md mục 14.5, 14.6).
 // Mọi văn bản người viết hiển thị nguyên văn (không render HTML) — 14 mục 14.8.
 import { useCallback, useState, type FormEvent } from 'react';
 import { Link, useParams } from 'react-router-dom';

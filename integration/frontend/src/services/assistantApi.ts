@@ -1,4 +1,4 @@
-// Gọi API trợ lý qua backend (docs/support-chatbot/07-api.md mục 7.2). Dùng httpClient sẵn có: tự gắn token,
+// Gọi API trợ lý qua backend (docs/07-api.md mục 7.2). Dùng httpClient sẵn có: tự gắn token,
 // tự làm mới token khi gặp 401. Frontend KHÔNG gọi thẳng assistant-service (QĐ2).
 import { getStoredTokens } from '../auth/authStorage';
 import { get, post, del } from './httpClient';

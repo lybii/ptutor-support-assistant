@@ -1,4 +1,4 @@
-// Nút nổi góc dưới phải + khung chat, gắn trong StudentLayout và TutorLayout (docs/support-chatbot/08 mục 8.1).
+// Nút nổi góc dưới phải + khung chat, gắn trong StudentLayout và TutorLayout (docs/08 mục 8.1).
 // Chỉ hiện cho học viên và gia sư đã đăng nhập; tắt bằng VITE_ASSISTANT_ENABLED=false.
 import { useEffect, useState, type ReactNode } from 'react';
 import { useLocation } from 'react-router-dom';

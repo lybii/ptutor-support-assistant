@@ -1,4 +1,4 @@
-// Nhãn hiển thị cho trang quản trị kho tri thức (docs/support-chatbot/03 mục 3.3–3.4, 3.7).
+// Nhãn hiển thị cho trang quản trị kho tri thức (docs/03 mục 3.3–3.4, 3.7).
 import type { StatusMeta } from '../adminFormat';
 import type { KbAudience, KbDocumentStatus, KbType, KbVersionState } from '../../../services/adminAssistantApi';
 

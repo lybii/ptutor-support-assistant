@@ -23,7 +23,7 @@ import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.ObjectMapper;
 
 /**
- * Cổng duy nhất từ backend sang assistant-service (docs/support-chatbot/02 mục 2.1, 07 mục 7.4; QĐ2).
+ * Cổng duy nhất từ backend sang assistant-service (docs/02 mục 2.1, 07 mục 7.4; QĐ2).
  *
  * <p>Mỗi lời gọi gắn:
  * <ul>

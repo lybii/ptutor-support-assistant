@@ -1,4 +1,4 @@
-// Yêu cầu hỗ trợ gửi nhân viên (docs/support-chatbot/14-yeu-cau-ho-tro.md mục 14.5).
+// Yêu cầu hỗ trợ gửi nhân viên (docs/14-yeu-cau-ho-tro.md mục 14.5).
 // Người dùng: /api/v1/users/me/support-requests. Nhân viên CUSTOMER_SERVICE / ADMIN: /api/v1/admin/support-requests.
 import { get, patch, post } from './httpClient';
 import type { PageResponse } from './studentApi';

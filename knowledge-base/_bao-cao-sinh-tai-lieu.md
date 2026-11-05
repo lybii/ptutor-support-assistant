@@ -4,7 +4,7 @@
 
 - Nhánh `dev`, commit `27f6eeb09815385bf92d3d552b0f8f705070a23c` (`git rev-parse dev`).
 - Cách đọc: `git show dev:<đường dẫn>`, `git grep … dev` và một bản sao chỉ-đọc bằng `git archive dev` vào thư mục tạm ngoài repo. Không tạo worktree, không chuyển nhánh, không sửa thư mục làm việc. Bản sao tạm đã được xóa khi xong.
-- Đặc tả: `feat/support-chatbot:docs/support-chatbot/03-kho-tri-thuc.md` (3.1–3.8), `00-doc-truoc.md`, `01-pham-vi-va-quyet-dinh.md`.
+- Đặc tả: `feat/support-chatbot:docs/03-kho-tri-thuc.md` (3.1–3.8), `00-doc-truoc.md`, `01-pham-vi-va-quyet-dinh.md`.
 - Không tìm thấy file `quy-dinh-nen-tang-tu-code.md` cạnh prompt hay trong `D:\DATN`, nên tài liệu chỉ dựa vào code `dev`. Mục 9 vì vậy không có nội dung.
 - Ngày sinh: 2026-11-02. Bản cập nhật 2026-11-03 thêm 2 tài liệu lỗi (`loi-buoi-hoc`, `loi-rut-tien-tai-khoan-ngan-hang`), đổi chức năng nhóm buổi học sang `lesson`, ghi rõ nhân viên chăm sóc khách hàng là người duyệt nội dung; các tài liệu đã sửa có `updated: 2026-11-03`.
 
@@ -458,7 +458,7 @@ Mọi tài liệu đều có `status: draft` để admin duyệt. Các tài li�
 
 ## 10. Khác với quy-dinh-nen-tang-tu-code.md
 
-Lúc sinh tài liệu (2026-11-02) không có file này cạnh prompt. File đã được thêm vào nhánh `feat/support-chatbot` ở commit `ce15c61` (`docs/support-chatbot/quy-dinh-nen-tang-tu-code.md`); chưa đối chiếu bộ tài liệu với file này.
+Lúc sinh tài liệu (2026-11-02) không có file này cạnh prompt. File đã được thêm vào nhánh `feat/support-chatbot` ở commit `ce15c61` (`docs/quy-dinh-nen-tang-tu-code.md`); chưa đối chiếu bộ tài liệu với file này.
 
 ## 11. Ghi chú khác
 

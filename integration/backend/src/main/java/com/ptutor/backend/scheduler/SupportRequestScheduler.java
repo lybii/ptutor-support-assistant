@@ -8,7 +8,7 @@ import com.ptutor.backend.service.SupportRequestService;
 import lombok.RequiredArgsConstructor;
 
 /**
- * Job hằng đêm của yêu cầu hỗ trợ (docs/support-chatbot/14-yeu-cau-ho-tro.md mục 14.3, 14.8): tự đóng yêu cầu đã
+ * Job hằng đêm của yêu cầu hỗ trợ (docs/14-yeu-cau-ho-tro.md mục 14.3, 14.8): tự đóng yêu cầu đã
  * trả lời quá 7 ngày; xoá đoạn hội thoại đính kèm 365 ngày sau khi đóng.
  */
 @Component

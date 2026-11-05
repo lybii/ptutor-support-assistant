@@ -27,7 +27,7 @@ import lombok.RequiredArgsConstructor;
 import tools.jackson.databind.JsonNode;
 
 /**
- * API quản trị kho tri thức của trợ lý (docs/support-chatbot/07-api.md mục 7.3). Chỉ {@code ADMIN}
+ * API quản trị kho tri thức của trợ lý (docs/07-api.md mục 7.3). Chỉ {@code ADMIN}
  * ({@code SecurityConstants.ADMIN_ASSISTANT_API}); assistant-service kiểm lại vai trò lần nữa (07 mục 7.4).
  *
  * <p>Nội dung tài liệu được chuyển tiếp nguyên JSON: kiểm tra hợp lệ (trường bắt buộc, route, todo, độ dài đoạn) do

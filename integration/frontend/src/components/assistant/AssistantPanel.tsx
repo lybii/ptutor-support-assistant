@@ -1,4 +1,4 @@
-// Khung chat: header, danh sách tin, ô nhập (docs/support-chatbot/08-giao-dien.md mục 8.1).
+// Khung chat: header, danh sách tin, ô nhập (docs/08-giao-dien.md mục 8.1).
 // Cách hiển thị theo bảng "Hành vi": từ chối / trả lời một phần có nút gửi nhân viên; câu ngoài phạm vi thì không.
 import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';

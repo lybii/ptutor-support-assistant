@@ -19,7 +19,7 @@ import com.ptutor.backend.entity.enums.SupportRequestStatus;
 
 import jakarta.persistence.LockModeType;
 
-/** Truy vấn yêu cầu hỗ trợ (docs/support-chatbot/14-yeu-cau-ho-tro.md mục 14.5). */
+/** Truy vấn yêu cầu hỗ trợ (docs/14-yeu-cau-ho-tro.md mục 14.5). */
 public interface SupportRequestRepository extends JpaRepository<SupportRequest, UUID> {
 
     /** Mã hiển thị kế tiếp: HT-000001, HT-000002… */

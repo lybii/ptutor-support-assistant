@@ -1,4 +1,4 @@
-// Hộp thoại "Gửi câu hỏi cho nhân viên" (docs/support-chatbot/14-yeu-cau-ho-tro.md mục 14.2).
+// Hộp thoại "Gửi câu hỏi cho nhân viên" (docs/14-yeu-cau-ho-tro.md mục 14.2).
 // Người dùng tự bấm gửi — trợ lý không có công cụ tạo yêu cầu (QĐ7). Đính kèm hội thoại mặc định KHÔNG chọn
 // (tối thiểu hoá dữ liệu); chú thích nói rõ đoạn đính kèm được lưu cùng yêu cầu kể cả khi xoá cuộc trò chuyện (14.8).
 import { useState, type FormEvent } from 'react';

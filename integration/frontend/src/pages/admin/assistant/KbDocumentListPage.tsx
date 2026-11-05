@@ -1,4 +1,4 @@
-// Danh sách tài liệu kho tri thức + bộ lọc + cờ "có nháp", "còn câu hỏi mở" (docs/support-chatbot/08 mục 8.2).
+// Danh sách tài liệu kho tri thức + bộ lọc + cờ "có nháp", "còn câu hỏi mở" (docs/08 mục 8.2).
 import { useCallback, type FormEvent } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { useResource } from '../../../hooks/useResource';

@@ -5,7 +5,7 @@ import java.util.UUID;
 import jakarta.validation.constraints.Size;
 
 /**
- * Câu hỏi gửi trợ lý (docs/support-chatbot/07-api.md mục 7.2). Không có {@code conversationId} → hội thoại mới.
+ * Câu hỏi gửi trợ lý (docs/07-api.md mục 7.2). Không có {@code conversationId} → hội thoại mới.
  * Độ dài 1–1.000 ký tự được kiểm ở {@code AssistantController} để trả đúng mã {@code INVALID_MESSAGE}.
  */
 public record AssistantMessageRequest(

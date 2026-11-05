@@ -1,4 +1,4 @@
-// Câu hỏi trợ lý chưa trả lời được hoặc bị 👎 (docs/support-chatbot/06 mục 6.5, 08 mục 8.2). Nội dung đã che thông
+// Câu hỏi trợ lý chưa trả lời được hoặc bị 👎 (docs/06 mục 6.5, 08 mục 8.2). Nội dung đã che thông
 // tin cá nhân; không có mã người dùng. Mỗi dòng: "Tạo tài liệu" (điền sẵn câu hỏi) hoặc, với câu bị chặn nhầm là ngoài
 // phạm vi, "Thêm làm câu mẫu trong phạm vi" (04 mục 4.11).
 import { useCallback, useState } from 'react';

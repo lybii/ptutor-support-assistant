@@ -49,7 +49,7 @@ import tools.jackson.databind.ObjectMapper;
 
 /**
  * Yêu cầu hỗ trợ: người dùng gửi câu hỏi cho nhân viên CUSTOMER_SERVICE khi trợ lý không trả lời được
- * (docs/support-chatbot/14-yeu-cau-ho-tro.md).
+ * (docs/14-yeu-cau-ho-tro.md).
  *
  * <p>Vòng đời (mục 14.3): OPEN → IN_PROGRESS → ANSWERED → CLOSED; OPEN → CANCELLED do người dùng hủy;
  * IN_PROGRESS → OPEN khi nhân viên trả lại hàng chờ. Mọi chuyển trạng thái khóa dòng ({@code findByIdForUpdate}) để

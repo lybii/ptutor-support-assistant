@@ -3,7 +3,7 @@
 ## 1. Nguồn đã đọc
 
 - Code: nhánh `dev`, commit `27f6eeb09815385bf92d3d552b0f8f705070a23c` (`git rev-parse dev`). Đọc bằng `git show` / `git grep`; không chuyển nhánh, không sửa file nào trong repo.
-- Đặc tả: `feat/support-chatbot:docs/support-chatbot/05-cong-cu-tra-cuu.md` (5.1–5.5), `02-kien-truc.md` (2.3), `04-luong-hoi-dap.md` (4.10), `07-api.md` (7.4, header `X-User-Id`), `14-yeu-cau-ho-tro.md`, `quy-dinh-nen-tang-tu-code.md`.
+- Đặc tả: `feat/support-chatbot:docs/05-cong-cu-tra-cuu.md` (5.1–5.5), `02-kien-truc.md` (2.3), `04-luong-hoi-dap.md` (4.10), `07-api.md` (7.4, header `X-User-Id`), `14-yeu-cau-ho-tro.md`, `quy-dinh-nen-tang-tu-code.md`.
 - Ngày lập: 2026-11-03.
 
 ## 2. Tổng quan

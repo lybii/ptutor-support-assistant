@@ -32,7 +32,7 @@ import jakarta.validation.constraints.Min;
 import lombok.RequiredArgsConstructor;
 
 /**
- * Yêu cầu hỗ trợ của chính người dùng (docs/support-chatbot/14-yeu-cau-ho-tro.md mục 14.5). Phân quyền ở
+ * Yêu cầu hỗ trợ của chính người dùng (docs/14-yeu-cau-ho-tro.md mục 14.5). Phân quyền ở
  * {@code SecurityConstants.SUPPORT_REQUEST_SELF_SERVICE_API}: chỉ STUDENT, TUTOR.
  */
 @RestController

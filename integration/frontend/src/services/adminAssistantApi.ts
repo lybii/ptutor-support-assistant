@@ -1,4 +1,4 @@
-// API quản trị kho tri thức của trợ lý (docs/support-chatbot/07-api.md mục 7.3). Chỉ ADMIN.
+// API quản trị kho tri thức của trợ lý (docs/07-api.md mục 7.3). Chỉ ADMIN.
 import { del, get, post, put } from './httpClient';
 
 const BASE = '/api/v1/admin/assistant';

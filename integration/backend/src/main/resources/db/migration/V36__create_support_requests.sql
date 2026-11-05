@@ -1,5 +1,5 @@
 -- Yêu cầu hỗ trợ: người dùng tự gửi câu hỏi cho nhân viên CUSTOMER_SERVICE khi trợ lý không trả lời được
--- (docs/support-chatbot/14-yeu-cau-ho-tro.md mục 14.4). Dữ liệu nghiệp vụ nên nằm ở schema public của backend.
+-- (docs/14-yeu-cau-ho-tro.md mục 14.4). Dữ liệu nghiệp vụ nên nằm ở schema public của backend.
 
 CREATE SEQUENCE IF NOT EXISTS support_request_code_seq START 1;
 

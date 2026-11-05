@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * Giới hạn số tin gửi trợ lý của mỗi người dùng trong một cửa sổ thời gian trượt
- * (docs/support-chatbot/07-api.md mục 7.2: 20 tin / 5 phút; 09 mục 9.1 lớp 5).
+ * (docs/07-api.md mục 7.2: 20 tin / 5 phút; 09 mục 9.1 lớp 5).
  *
  * <p>Giữ trong bộ nhớ của tiến trình backend: đủ cho một bản backend. Chạy nhiều bản thì cần bộ đếm dùng chung
  * (Redis...), ghi ở hướng phát triển.

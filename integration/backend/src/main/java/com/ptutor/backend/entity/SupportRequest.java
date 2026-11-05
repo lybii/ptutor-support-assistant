@@ -30,7 +30,7 @@ import lombok.experimental.NonFinal;
 
 /**
  * Yêu cầu hỗ trợ: câu hỏi người dùng tự gửi cho nhân viên CUSTOMER_SERVICE khi trợ lý không trả lời được
- * (docs/support-chatbot/14-yeu-cau-ho-tro.md mục 14.4). Một vòng hỏi – đáp; hỏi tiếp thì gửi yêu cầu mới có
+ * (docs/14-yeu-cau-ho-tro.md mục 14.4). Một vòng hỏi – đáp; hỏi tiếp thì gửi yêu cầu mới có
  * {@code previousRequest}.
  */
 @Entity

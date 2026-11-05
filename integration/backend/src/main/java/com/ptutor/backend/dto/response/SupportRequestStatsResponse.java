@@ -3,7 +3,7 @@ package com.ptutor.backend.dto.response;
 import java.util.Map;
 
 /**
- * Số liệu yêu cầu hỗ trợ (docs/support-chatbot/14-yeu-cau-ho-tro.md mục 14.9). Thời gian tính bằng phút, trên các
+ * Số liệu yêu cầu hỗ trợ (docs/14-yeu-cau-ho-tro.md mục 14.9). Thời gian tính bằng phút, trên các
  * yêu cầu tạo trong {@code windowDays} ngày gần nhất; null khi chưa có mẫu.
  */
 public record SupportRequestStatsResponse(

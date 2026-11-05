@@ -1,4 +1,4 @@
--- Trợ lý hỗ trợ (thiết kế docs/support-chatbot/06-du-lieu-va-schema.md mục 6.1).
+-- Trợ lý hỗ trợ (thiết kế docs/06-du-lieu-va-schema.md mục 6.1).
 -- Schema riêng cho assistant-service; các bảng bên trong do Alembic của assistant-service quản lý.
 -- Role assistant_app và mật khẩu được tạo ngoài migration (biến môi trường), không ghi ở đây.
 CREATE EXTENSION IF NOT EXISTS unaccent;

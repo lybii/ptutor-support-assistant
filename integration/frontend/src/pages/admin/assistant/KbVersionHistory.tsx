@@ -1,5 +1,5 @@
 // Lịch sử phiên bản: xem bản cũ, khôi phục (= công bố lại nội dung cũ thành phiên bản mới, không sửa lịch sử)
-// — docs/support-chatbot/03 mục 3.2, 08 mục 8.2.
+// — docs/03 mục 3.2, 08 mục 8.2.
 import { useState } from 'react';
 import { getVersion, restoreVersion, type KbDocumentDetail, type KbVersion } from '../../../services/adminAssistantApi';
 import { AdminModal, StatusBadge } from '../components/AdminUi';

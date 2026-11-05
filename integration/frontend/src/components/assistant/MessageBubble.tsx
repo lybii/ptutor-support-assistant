@@ -1,5 +1,5 @@
 // Một bong bóng tin nhắn. Markdown được hiển thị bằng phần tử React (KHÔNG dùng dangerouslySetInnerHTML):
-// nội dung câu trả lời / tài liệu không bao giờ thành HTML chạy được (docs/support-chatbot/09 T11 — XSS).
+// nội dung câu trả lời / tài liệu không bao giờ thành HTML chạy được (docs/09 T11 — XSS).
 // Chỉ hỗ trợ phần Markdown trợ lý dùng: **đậm**, danh sách "- " và "1. ", xuống dòng, chip trích dẫn [n].
 import type { ReactNode } from 'react';
 import type { AssistantCitation } from '../../types/assistant';

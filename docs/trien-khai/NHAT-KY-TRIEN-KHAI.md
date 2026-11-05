@@ -720,7 +720,7 @@ bẫy; bộ verifier 60 cặp + `eval.verifier`; công cụ chấm tay; chạy E
   (2) thêm dấu hiệu câu hỏi cá nhân; (3) `FocusItem.mentioned_turn` — đối tượng người dùng gọi tên thành "đang bàn
   nhất", lời nhắc viết lại câu hỏi nói rõ thứ tự; (4) Actor trích xuất v2 (gọi tool có điều kiện, intent HOWTO).
 - Thêm `ASSISTANT_LLM_PROVIDER=scripted` (chỉ cho demo khi chưa có model).
-- Báo cáo: `docs/support-chatbot/trien-khai/BAO-CAO-DANH-GIA.md` (ghi rõ: Actor giả lập, embedding giả lập, kho 66
+- Báo cáo: `docs/trien-khai/BAO-CAO-DANH-GIA.md` (ghi rõ: Actor giả lập, embedding giả lập, kho 66
   tài liệu còn 95 câu todo, T3–T4 chưa chạy; việc thống nhất múi giờ cho nhóm kèm danh sách trang).
 
 - Cách chạy: mục 2 của báo cáo.
@@ -754,7 +754,7 @@ bẫy; bộ verifier 60 cặp + `eval.verifier`; công cụ chấm tay; chạy E
 - Chạy thử toàn bộ bằng Docker (project riêng, Postgres riêng cổng 5434, không đụng `ptutor-postgres`): Flyway V1–V36,
   seeder, nạp 66 tài liệu, kiểm thử đầu-cuối (hỏi quy định, tra cứu số dư thật qua backend, chặn ngoài phạm vi, hàng
   chờ CSKH, gia sư bị 403).
-- 10 ảnh màn hình Playwright (Chrome có sẵn) ở `docs/support-chatbot/trien-khai/demo/`.
+- 10 ảnh màn hình Playwright (Chrome có sẵn) ở `docs/trien-khai/demo/`.
 - Tài liệu: `assistant-service/README.md`, `HUONG-DAN-DEMO.md`, `THIET-KE-VS-TRIEN-KHAI.md` (bảng đối chiếu).
 
 - Kiểm tra: `DemoDataSeederIntegrationTest` (Postgres thật, chạy seeder hai lần); pytest, ruff, mypy sạch; quét bí mật
@@ -791,7 +791,7 @@ bẫy; bộ verifier 60 cặp + `eval.verifier`; công cụ chấm tay; chạy E
 - E2: tổng không khác biệt. Verifier giúp NO_ANSWER (+10 điểm) nhưng bác nhầm một số câu POLICY / HOWTO; p95 tăng
   2,4 lần.
 - Ảnh demo chụp lại với model thật ở `demo/`; bộ ảnh giả lập chuyển sang `demo/scripted/`.
-- Phiếu chấm tay mù: `docs/support-chatbot/trien-khai/cham-tay/sheet.csv` (82 dòng).
+- Phiếu chấm tay mù: `docs/trien-khai/cham-tay/sheet.csv` (82 dòng).
 - Báo cáo: `BAO-CAO-DANH-GIA.md` mục T3.
 
 **Sự cố.** Tài khoản API hết credit sau 3,30 $, đúng lúc đang chạy E2-không-thử-lại (429 `insufficient_quota`). Harness

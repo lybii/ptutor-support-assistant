@@ -430,7 +430,7 @@ Baseline lưu ở `assistant-service/eval/baselines/baseline.json`.
 
 ## 8. Chấm tay (phiếu đã sinh, chờ người chấm)
 
-Phiếu: **`docs/support-chatbot/trien-khai/cham-tay/sheet.csv`**. Có 82 câu trả lời của model thật: 41 câu POLICY /
+Phiếu: **`docs/trien-khai/cham-tay/sheet.csv`**. Có 82 câu trả lời của model thật: 41 câu POLICY /
 HOWTO của tập test × 2 cấu hình (`real_llm` có verifier, `real_e2_no_verifier`). Thứ tự đã trộn và tên cấu
 hình bị ẩn (mã M001…M082).
 

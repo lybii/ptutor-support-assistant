@@ -1,4 +1,4 @@
-// Trang soạn tài liệu kho tri thức (docs/support-chatbot/08-giao-dien.md mục 8.2, vòng đời 03 mục 3.2):
+// Trang soạn tài liệu kho tri thức (docs/08-giao-dien.md mục 8.2, vòng đời 03 mục 3.2):
 // form thông tin + ô soạn Markdown | xem trước + cách chia đoạn + lịch sử phiên bản.
 // - Còn câu hỏi mở (todo) → nút Công bố bị khoá.
 // - Công bố: kiểm tra hợp lệ → hộp thoại xác nhận → công bố. Sai sau khi công bố → khôi phục phiên bản trước.

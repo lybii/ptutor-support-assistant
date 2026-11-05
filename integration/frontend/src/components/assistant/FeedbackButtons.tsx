@@ -1,4 +1,4 @@
-// 👍 / 👎 cho một câu trả lời. 👎 → hỏi lý do + ghi chú tuỳ chọn (docs/support-chatbot/08 mục 8.1).
+// 👍 / 👎 cho một câu trả lời. 👎 → hỏi lý do + ghi chú tuỳ chọn (docs/08 mục 8.1).
 import { useState } from 'react';
 import { sendFeedback } from '../../services/assistantApi';
 import type { FeedbackReason } from '../../types/assistant';

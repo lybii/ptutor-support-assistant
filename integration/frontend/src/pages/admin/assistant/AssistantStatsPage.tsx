@@ -1,4 +1,4 @@
-// Số liệu tổng quan của trợ lý 30 ngày gần nhất (docs/support-chatbot/07 mục 7.3, 11 mục 11.3).
+// Số liệu tổng quan của trợ lý 30 ngày gần nhất (docs/07 mục 7.3, 11 mục 11.3).
 import { useCallback } from 'react';
 import { useResource } from '../../../hooks/useResource';
 import { getAssistantStats } from '../../../services/adminAssistantApi';

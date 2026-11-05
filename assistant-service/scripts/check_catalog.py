@@ -132,6 +132,10 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--repo", type=Path, default=Path(__file__).resolve().parents[2])
     args = parser.parse_args()
+    if not (args.repo / "backend").is_dir() or not (args.repo / "frontend").is_dir():
+        # Repo tách riêng chỉ có phần tích hợp (integration/), không có toàn bộ backend/frontend để đối chiếu.
+        print("BỎ QUA: cần chạy trong repo đầy đủ có backend/ và frontend/ (dùng --repo).")
+        return 0
     problems = check_tools(args.repo) + check_routes(args.repo)
     for problem in problems:
         print("LỆCH:", problem)

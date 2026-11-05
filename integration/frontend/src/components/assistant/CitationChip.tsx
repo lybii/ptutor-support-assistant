@@ -1,4 +1,4 @@
-// Chip trích dẫn [n]: bấm / rê chuột → tên tài liệu và mục (docs/support-chatbot/08-giao-dien.md mục 8.1).
+// Chip trích dẫn [n]: bấm / rê chuột → tên tài liệu và mục (docs/08-giao-dien.md mục 8.1).
 import { useState } from 'react';
 import type { AssistantCitation } from '../../types/assistant';
 

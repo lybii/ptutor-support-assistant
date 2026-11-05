@@ -1,4 +1,4 @@
-// Trang "Yêu cầu hỗ trợ" của học viên / gia sư (docs/support-chatbot/14-yeu-cau-ho-tro.md mục 14.6).
+// Trang "Yêu cầu hỗ trợ" của học viên / gia sư (docs/14-yeu-cau-ho-tro.md mục 14.6).
 // Một component dùng chung cho /student/support-requests và /tutor/support-requests (như WalletPage).
 import { useCallback, useState } from 'react';
 import { Link } from 'react-router-dom';

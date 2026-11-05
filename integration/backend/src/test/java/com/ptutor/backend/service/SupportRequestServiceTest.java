@@ -45,7 +45,7 @@ import com.ptutor.backend.repository.UserRepository;
 import tools.jackson.databind.ObjectMapper;
 import tools.jackson.databind.json.JsonMapper;
 
-/** Kiểm thử theo docs/support-chatbot/14-yeu-cau-ho-tro.md mục 14.10 (tầng backend). */
+/** Kiểm thử theo docs/14-yeu-cau-ho-tro.md mục 14.10 (tầng backend). */
 @ExtendWith(MockitoExtension.class)
 class SupportRequestServiceTest {
 

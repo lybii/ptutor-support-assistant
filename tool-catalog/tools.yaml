@@ -6,7 +6,7 @@ catalog:
   source_branch: dev
   source_commit: 27f6eeb09815385bf92d3d552b0f8f705070a23c
   updated: 2026-11-03
-  spec: "feat/support-chatbot:docs/support-chatbot/05-cong-cu-tra-cuu.md"
+  spec: "feat/support-chatbot:docs/05-cong-cu-tra-cuu.md"
 
 # Lớp bọc kết quả chung, áp dụng cho mọi công cụ.
 wrapper:
@@ -46,7 +46,7 @@ wrapper:
       - "Định dạng hiển thị dd/MM/yyyy HH:mm, giờ Việt Nam."
       - "Ngày lịch (LocalDate: hạn đóng học phí, ngày học, ngày bắt đầu, kết thúc hợp đồng) và giờ học (LocalTime) giữ nguyên, không đổi múi giờ."
       - "Tham số thời gian model điền (createdFrom, createdTo) so với createdAt (BACKEND_JVM); model điền theo giờ Việt Nam, lớp lọc đổi sang backend_jvm_time_zone trước khi gọi API."
-    team_followup: "Việc riêng cho nhóm: thống nhất múi giờ toàn hệ thống (UTC ở backend, frontend tự đổi). Xem docs/support-chatbot/trien-khai/NHAT-KY-TRIEN-KHAI.md mục Múi giờ."
+    team_followup: "Việc riêng cho nhóm: thống nhất múi giờ toàn hệ thống (UTC ở backend, frontend tự đổi). Xem docs/trien-khai/NHAT-KY-TRIEN-KHAI.md mục Múi giờ."
   derived_fields: "Trường có derived: true không có trong API; lớp lọc kết quả tự tính theo derived_from trước khi đưa model. Mã người hỏi lấy từ header X-User-Id mà backend gửi sang assistant-service (07-api.md mục 7.4); model không thấy mã này."
   paging_defaults: "page mặc định 0 (nhỏ nhất 0); size mặc định 20, từ 1 đến 100. Với công cụ liệt kê có phân trang, lớp lọc cố định size = 100 (fixed_params) để tính tổng và đếm theo trạng thái, rồi chỉ đưa model max_items mục."
   list_rules:
@@ -2292,7 +2292,7 @@ tools:
       - dto: SupportRequestResponse
       - enum: SupportRequestStatus, SupportRequestSource
       - security: "SecurityConstants.SUPPORT_REQUEST_SELF_SERVICE_API hasAnyRole(STUDENT, TUTOR)"
-      - design: "docs/support-chatbot/14-yeu-cau-ho-tro.md mục 14.5, 14.7"
+      - design: "docs/14-yeu-cau-ho-tro.md mục 14.5, 14.7"
     notes: "Tên trường giữ đúng thiết kế 14. createdAt do Hibernate ghi (múi giờ JVM); answeredAt, closedAt do service ghi bằng LocalDateTime.now(clock) (UTC)."
 
   - func_code: get_my_support_request
@@ -2326,4 +2326,4 @@ tools:
       - controller: SupportRequestController.findById (GET /api/v1/users/me/support-requests/{requestId})
       - service: SupportRequestService.findMine(userId, requestId)
       - dto: SupportRequestResponse
-      - design: "docs/support-chatbot/14-yeu-cau-ho-tro.md mục 14.5"
+      - design: "docs/14-yeu-cau-ho-tro.md mục 14.5"

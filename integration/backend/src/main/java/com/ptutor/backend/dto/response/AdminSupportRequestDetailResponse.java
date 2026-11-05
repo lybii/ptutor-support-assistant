@@ -11,7 +11,7 @@ import tools.jackson.databind.JsonNode;
 
 /**
  * Chi tiết cho nhân viên: câu hỏi, đoạn hội thoại (nếu người dùng đồng ý đính kèm), người gửi và các yêu cầu trước của
- * cùng người (docs/support-chatbot/14-yeu-cau-ho-tro.md mục 14.5).
+ * cùng người (docs/14-yeu-cau-ho-tro.md mục 14.5).
  */
 public record AdminSupportRequestDetailResponse(
         UUID id,

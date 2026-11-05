@@ -5,7 +5,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
-/** Đánh giá 👍 / 👎 một câu trả lời (docs/support-chatbot/07-api.md mục 7.2). Gửi lại → ghi đè. */
+/** Đánh giá 👍 / 👎 một câu trả lời (docs/07-api.md mục 7.2). Gửi lại → ghi đè. */
 public record AssistantFeedbackRequest(
         @NotNull(message = "rating is required")
         Integer rating,

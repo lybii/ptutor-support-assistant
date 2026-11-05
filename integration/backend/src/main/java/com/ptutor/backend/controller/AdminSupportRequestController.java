@@ -35,7 +35,7 @@ import jakarta.validation.constraints.Min;
 import lombok.RequiredArgsConstructor;
 
 /**
- * Hàng chờ yêu cầu hỗ trợ cho ADMIN và nhân viên CUSTOMER_SERVICE (docs/support-chatbot/14-yeu-cau-ho-tro.md
+ * Hàng chờ yêu cầu hỗ trợ cho ADMIN và nhân viên CUSTOMER_SERVICE (docs/14-yeu-cau-ho-tro.md
  * mục 14.5). Chức năng nhân viên được kiểm ở {@code EmployeeFunctionAuthorizationFilter}.
  */
 @RestController

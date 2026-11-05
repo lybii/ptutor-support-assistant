@@ -33,7 +33,7 @@ import lombok.RequiredArgsConstructor;
 import tools.jackson.databind.JsonNode;
 
 /**
- * API trợ lý cho học viên và gia sư (docs/support-chatbot/07-api.md mục 7.2). Phân quyền ở
+ * API trợ lý cho học viên và gia sư (docs/07-api.md mục 7.2). Phân quyền ở
  * {@code SecurityConstants.ASSISTANT_API}: chỉ {@code STUDENT}, {@code TUTOR}.
  *
  * <p>Controller không xử lý nội dung: kiểm tra nhanh đầu vào, giới hạn tần suất, rồi chuyển tiếp sang

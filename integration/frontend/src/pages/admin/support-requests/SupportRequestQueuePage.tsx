@@ -1,4 +1,4 @@
-// Hàng chờ yêu cầu hỗ trợ cho nhân viên CUSTOMER_SERVICE và ADMIN (docs/support-chatbot/14-yeu-cau-ho-tro.md
+// Hàng chờ yêu cầu hỗ trợ cho nhân viên CUSTOMER_SERVICE và ADMIN (docs/14-yeu-cau-ho-tro.md
 // mục 14.6): tab Chờ xử lý / Của tôi / Đã trả lời, cũ nhất trước; số liệu theo trạng thái, thời gian phản hồi và tỉ lệ
 // yêu cầu trên lượt trợ lý từ chối / trả lời một phần (14.9).
 import { useCallback, useState } from 'react';

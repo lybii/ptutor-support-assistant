@@ -1,4 +1,4 @@
-// Trạng thái khung chat (docs/support-chatbot/08-giao-dien.md mục 8.1 "Hành vi").
+// Trạng thái khung chat (docs/08-giao-dien.md mục 8.1 "Hành vi").
 // - Giữ conversationId theo tab (sessionStorage); tải lại trang → nạp lại tin nhắn của phiên.
 // - 409 CONVERSATION_ENDED → tự mở phiên mới và gửi lại câu hỏi một lần.
 // - Quá 35 giây → báo lỗi, cho gửi lại. 429 / 503 → câu báo ngắn.

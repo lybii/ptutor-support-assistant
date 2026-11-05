@@ -1,5 +1,5 @@
 // Xem trước tài liệu Markdown ở trang soạn. Hiển thị bằng phần tử React, KHÔNG dùng dangerouslySetInnerHTML
-// (docs/support-chatbot/09 T11 — XSS qua nội dung tài liệu). Hỗ trợ: tiêu đề #, ##, ###; danh sách; **đậm**.
+// (docs/09 T11 — XSS qua nội dung tài liệu). Hỗ trợ: tiêu đề #, ##, ###; danh sách; **đậm**.
 import type { ReactNode } from 'react';
 
 function inline(text: string, key: string): ReactNode[] {

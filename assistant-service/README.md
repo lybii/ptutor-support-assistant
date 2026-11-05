@@ -2,7 +2,7 @@
 
 Dịch vụ Python (FastAPI) trả lời câu hỏi của học viên và gia sư về cách dùng nền tảng (kho tri thức) và tra cứu dữ
 liệu của chính họ (công cụ chỉ-đọc gọi API "của tôi" của backend). Chỉ backend gọi vào dịch vụ này (header
-`X-Internal-Token`); frontend không bao giờ gọi thẳng. Thiết kế: [`docs/support-chatbot/`](../docs/support-chatbot/).
+`X-Internal-Token`); frontend không bao giờ gọi thẳng. Thiết kế: [`docs/`](../docs/).
 
 ## Chạy trên máy dev
 
@@ -28,7 +28,7 @@ Biến môi trường chính (tiền tố `ASSISTANT_`, xem `app/config.py`):
 | `ASSISTANT_TOOLS_MODE` | `live` (gọi backend), `mock` (fixture eval), `off` |
 | `ASSISTANT_BACKEND_JVM_TIME_ZONE` | Múi giờ JVM của backend, để đổi đúng các trường thời gian (nhãn `time_zone` trong `tools.yaml`) |
 
-Chạy cả hệ thống bằng Docker: [`HUONG-DAN-DEMO.md`](../docs/support-chatbot/trien-khai/HUONG-DAN-DEMO.md).
+Chạy cả hệ thống bằng Docker: [`HUONG-DAN-DEMO.md`](../docs/trien-khai/HUONG-DAN-DEMO.md).
 
 ## Cấu trúc
 
@@ -41,7 +41,7 @@ Chạy cả hệ thống bằng Docker: [`HUONG-DAN-DEMO.md`](../docs/support-ch
 | `app/tools/` | Danh mục công cụ từ `tool-catalog/tools.yaml`, gọi backend, lọc kết quả |
 | `app/scope/`, `app/privacy/` | Chặn ngoài phạm vi, che thông tin cá nhân |
 | `migrations/` | Alembic (schema `assistant`) |
-| `eval/` | Bộ đánh giá: dữ liệu, fixture, bộ chấm, thí nghiệm — xem [báo cáo](../docs/support-chatbot/trien-khai/BAO-CAO-DANH-GIA.md) |
+| `eval/` | Bộ đánh giá: dữ liệu, fixture, bộ chấm, thí nghiệm — xem [báo cáo](../docs/trien-khai/BAO-CAO-DANH-GIA.md) |
 | `tests/` | `unit` (không mạng, không DB), `integration` (cần Postgres), `contract` (cần backend chạy) |
 
 ## Kiểm tra
@@ -55,5 +55,5 @@ Chạy cả hệ thống bằng Docker: [`HUONG-DAN-DEMO.md`](../docs/support-ch
 OPENAI_API_KEY=... bash eval/run_experiments_real.sh t3     # T3 model thật: in ước tính, trần 10 $ (sổ chi tiêu chung)
 ```
 
-Đọc code bắt đầu từ [`NHAT-KY-TRIEN-KHAI.md`](../docs/support-chatbot/trien-khai/NHAT-KY-TRIEN-KHAI.md) mục "Đọc code này thế
+Đọc code bắt đầu từ [`NHAT-KY-TRIEN-KHAI.md`](../docs/trien-khai/NHAT-KY-TRIEN-KHAI.md) mục "Đọc code này thế
 nào" của từng module.

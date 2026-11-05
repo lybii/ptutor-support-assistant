@@ -1,4 +1,4 @@
-// Kiểu dữ liệu của trợ lý hỗ trợ — theo docs/support-chatbot/07-api.md mục 7.2.
+// Kiểu dữ liệu của trợ lý hỗ trợ — theo docs/07-api.md mục 7.2.
 
 export type AssistantIntent = 'POLICY' | 'HOWTO' | 'LOOKUP' | 'CHITCHAT' | 'OUT_OF_SCOPE';
 export type AssistantGrounded = 'FULL' | 'PARTIAL' | 'NONE';

@@ -12,7 +12,7 @@ source:
   - "enum: SupportRequestStatus (OPEN, IN_PROGRESS, ANSWERED, CLOSED, CANCELLED)"
   - "backend: SupportRequestService (giới hạn 5 yêu cầu chờ xử lý, 10 yêu cầu mỗi ngày, tự đóng sau 7 ngày, xoá đoạn hội thoại 365 ngày sau khi đóng)"
   - "frontend: components/support/supportFormat.ts supportStatusMeta (Chờ xử lý, Đang xử lý, Đã trả lời, Đã đóng, Đã hủy)"
-  - "thiết kế: docs/support-chatbot/14-yeu-cau-ho-tro.md"
+  - "thiết kế: docs/14-yeu-cau-ho-tro.md"
 error_codes: [SUPPORT_REQUEST_OPEN_LIMIT, SUPPORT_REQUEST_DAILY_LIMIT, INVALID_SUPPORT_REQUEST_STATUS_TRANSITION]
 keywords: [yêu cầu hỗ trợ, gửi câu hỏi cho nhân viên, hỏi nhân viên, chờ xử lý, đã trả lời, đã giải quyết, yeu cau ho tro, hoi nhan vien, gui cau hoi cho nhan vien, HT-]
 todo: []
