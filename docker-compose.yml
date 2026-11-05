@@ -1,28 +1,56 @@
-# Chạy thử trợ lý độc lập: Postgres (pgvector) + assistant-service, công cụ tra cứu dùng fixture (không cần backend).
-#   cp .env.example .env && docker compose up -d --build
-#   docker compose run --rm assistant-service kb-import --publish --allow-todo
+# Chạy cả hệ thống:  cp .env.example .env  (điền giá trị)  &&  docker compose up -d --build
+# Mở http://localhost:8088 và đăng nhập bằng tài khoản demo (mật khẩu = DEMO_USER_PASSWORD).
 services:
   postgres:
     image: pgvector/pgvector:pg17
     environment:
-      POSTGRES_DB: assistant
+      POSTGRES_DB: ptutor
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD must be set}
     ports:
       - "${POSTGRES_PORT:-5432}:5432"
     volumes:
-      - assistant_pg:/var/lib/postgresql/data
+      - ptutor_pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d ptutor"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  backend:
+    build: ./backend
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: on-failure
+    environment:
+      DB_URL: jdbc:postgresql://postgres:5432/ptutor
+      DB_USERNAME: postgres
+      DB_PASSWORD: ${POSTGRES_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET:?JWT_SECRET must be set (>= 32 ky tu)}
+      CORS_ALLOWED_ORIGINS: http://localhost:8088,http://localhost:5173
+      APP_ASSISTANT_ENABLED: "true"
+      APP_ASSISTANT_SERVICE_BASE_URL: http://assistant-service:8100
+      APP_ASSISTANT_SERVICE_INTERNAL_TOKEN: ${ASSISTANT_INTERNAL_TOKEN:?ASSISTANT_INTERNAL_TOKEN must be set}
+      DEMO_USER_PASSWORD: ${DEMO_USER_PASSWORD:-}
+    ports:
+      - "${BACKEND_PORT:-8080}:8080"
 
   assistant-service:
     build:
       context: .
       dockerfile: assistant-service/Dockerfile
-    depends_on: [postgres]
+    depends_on:
+      postgres:
+        condition: service_healthy
     restart: on-failure
     environment:
-      ASSISTANT_DATABASE_URL: postgresql+psycopg://postgres:${POSTGRES_PASSWORD}@postgres:5432/assistant
-      ASSISTANT_INTERNAL_TOKEN: ${ASSISTANT_INTERNAL_TOKEN:?ASSISTANT_INTERNAL_TOKEN must be set}
-      ASSISTANT_TOOLS_MODE: ${ASSISTANT_TOOLS_MODE:-mock}
+      ASSISTANT_DATABASE_URL: postgresql+psycopg://postgres:${POSTGRES_PASSWORD}@postgres:5432/ptutor
+      ASSISTANT_INTERNAL_TOKEN: ${ASSISTANT_INTERNAL_TOKEN}
+      ASSISTANT_BACKEND_BASE_URL: http://backend:8080
+      ASSISTANT_TOOLS_MODE: live
+      ASSISTANT_BACKEND_JVM_TIME_ZONE: Asia/Ho_Chi_Minh
+      ASSISTANT_KB_AUTO_IMPORT: "true"
       ASSISTANT_LLM_PROVIDER: ${ASSISTANT_LLM_PROVIDER:-scripted}
       ASSISTANT_LLM_MODEL: ${ASSISTANT_LLM_MODEL:-}
       OPENAI_API_KEY: ${OPENAI_API_KEY:-}
@@ -31,5 +59,11 @@ services:
     ports:
       - "${ASSISTANT_PORT:-8100}:8100"
 
+  frontend:
+    build: ./frontend
+    depends_on: [backend]
+    ports:
+      - "${FRONTEND_PORT:-8088}:80"
+
 volumes:
-  assistant_pg:
+  ptutor_pg:

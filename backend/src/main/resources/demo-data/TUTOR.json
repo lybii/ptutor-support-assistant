@@ -1,0 +1,398 @@
+{
+  "/api/v1/tutors/me": {
+    "default": {
+      "status": 200,
+      "body": {
+        "tutorId": "t1",
+        "userId": "33333333-3333-3333-3333-000000000003",
+        "email": "tutor-should-be-filtered@example.com",
+        "firstName": "Bình",
+        "lastName": "Trần",
+        "phone": "0987654321",
+        "gender": "FEMALE",
+        "dateOfBirth": "1998-05-01",
+        "avatarUrl": null,
+        "address": null,
+        "introduction": "Gia sư tiếng Anh 5 năm kinh nghiệm",
+        "experienceYears": 5,
+        "education": "ĐH Sư phạm",
+        "teachingStyleTags": "",
+        "teachingMethodology": "",
+        "strengthSubjects": "Tiếng Anh",
+        "targetStudentType": "THCS",
+        "averageRating": 4.8,
+        "totalReviews": 12,
+        "completedContractsCount": 6,
+        "totalStudentsTaught": 9,
+        "acceptanceRate": 0.75,
+        "avgResponseTimeHours": 5.5,
+        "profileStatus": "APPROVED",
+        "profileReviewedAt": "2026-09-01T02:00:00",
+        "profileRejectionReason": null,
+        "createdAt": "2026-08-20T09:00:00",
+        "updatedAt": "2026-09-01T09:00:00"
+      }
+    }
+  },
+  "/api/v1/users/me/wallet": {
+    "default": {
+      "status": 200,
+      "body": {
+        "walletId": "w2",
+        "userId": "33333333-3333-3333-3333-000000000003",
+        "balance": 1500000,
+        "pendingBalance": 200000,
+        "currency": "VND",
+        "updatedAt": "2026-10-18T02:00:00"
+      }
+    }
+  },
+  "/api/v1/tutors/me/contracts/{contractId}/lessons": {
+    "default": {
+      "status": 404,
+      "code": "CONTRACT_NOT_FOUND"
+    },
+    "byArgs": [
+      {
+        "match": {
+          "contractId": "c0000000-0000-4000-8000-000000000001"
+        },
+        "status": 200,
+        "body": {
+          "content": [
+            {
+              "id": "l0000000-0000-4000-8000-000000000011",
+              "contractId": "c0000000-0000-4000-8000-000000000001",
+              "title": "Buổi 6",
+              "date": "2026-10-19",
+              "startTime": "19:00:00",
+              "endTime": "20:30:00",
+              "teachingMode": "OFFLINE",
+              "status": "PENDING_CONFIRMATION",
+              "note": null,
+              "markedTaughtAt": "2026-10-19T13:40:00"
+            },
+            {
+              "id": "l0000000-0000-4000-8000-000000000012",
+              "contractId": "c0000000-0000-4000-8000-000000000001",
+              "title": "Buổi 7",
+              "date": "2026-10-26",
+              "startTime": "19:00:00",
+              "endTime": "20:30:00",
+              "teachingMode": "OFFLINE",
+              "status": "SCHEDULED",
+              "note": null,
+              "markedTaughtAt": null
+            }
+          ],
+          "page": 0,
+          "size": 100,
+          "totalElements": 2,
+          "totalPages": 1,
+          "first": true,
+          "last": true
+        }
+      },
+      {
+        "match": {
+          "contractId": "c0000000-0000-4000-8000-000000000002"
+        },
+        "status": 200,
+        "body": {
+          "content": [],
+          "page": 0,
+          "size": 100,
+          "totalElements": 0,
+          "totalPages": 0,
+          "first": true,
+          "last": true
+        }
+      }
+    ]
+  },
+  "/api/v1/tutors/me/certificates": {
+    "default": {
+      "status": 200,
+      "body": [
+        {
+          "id": "d0000000-0000-4000-8000-000000000001",
+          "tutorId": "t1",
+          "name": "IELTS 8.0",
+          "issuingOrganization": "IDP",
+          "description": "",
+          "issueDate": "2025-03-01",
+          "expiryDate": "2027-03-01",
+          "certificateUrl": "s3://x",
+          "status": "VERIFIED",
+          "rejectionReason": null,
+          "reviewedAt": "2026-08-25T03:00:00",
+          "createdAt": "2026-08-21T09:00:00",
+          "updatedAt": "2026-08-25T10:00:00"
+        },
+        {
+          "id": "d0000000-0000-4000-8000-000000000002",
+          "tutorId": "t1",
+          "name": "TOEIC 950",
+          "issuingOrganization": "IIG",
+          "description": "",
+          "issueDate": "2023-01-01",
+          "expiryDate": "2025-01-01",
+          "certificateUrl": "s3://y",
+          "status": "REJECTED",
+          "rejectionReason": "Chứng chỉ đã hết hạn",
+          "reviewedAt": "2026-08-26T03:00:00",
+          "createdAt": "2026-08-21T09:00:00",
+          "updatedAt": "2026-08-26T10:00:00"
+        }
+      ]
+    }
+  },
+  "/api/v1/users/me/contracts": {
+    "default": {
+      "status": 200,
+      "body": {
+        "content": [
+          {
+            "id": "c0000000-0000-4000-8000-000000000001",
+            "studentId": "a0000000-0000-4000-8000-0000000000aa",
+            "studentFirstName": "Lan",
+            "studentLastName": "Nguyễn",
+            "studentEmail": "should-be-filtered@example.com",
+            "tutorId": "b0000000-0000-4000-8000-0000000000bb",
+            "tutorFirstName": "An",
+            "tutorLastName": "Trần",
+            "tutorEmail": "tutor-should-be-filtered@example.com",
+            "subjectId": "s1",
+            "subjectName": "Toán",
+            "gradeId": "g1",
+            "gradeName": "Lớp 9",
+            "teachingMode": "ONLINE",
+            "price": 1200000,
+            "paymentPeriod": "MONTHLY",
+            "totalLessons": 12,
+            "preferredSchedule": "Tối thứ 3, thứ 5",
+            "schedules": [
+              {
+                "dayOfWeek": 2,
+                "startTime": "19:00",
+                "endTime": "20:30"
+              }
+            ],
+            "startDate": "2026-09-05",
+            "endDate": "2027-01-05",
+            "status": "ACTIVE",
+            "createdByUserId": "11111111-1111-1111-1111-000000000001",
+            "signedByUserId": null,
+            "renewedFromContractId": null,
+            "signedAt": "2026-09-02T08:30:00",
+            "createdAt": "2026-09-01T10:00:00",
+            "updatedAt": "2026-09-02T10:00:00"
+          },
+          {
+            "id": "c0000000-0000-4000-8000-000000000002",
+            "studentId": "a0000000-0000-4000-8000-0000000000aa",
+            "studentFirstName": "Lan",
+            "studentLastName": "Nguyễn",
+            "studentEmail": "should-be-filtered@example.com",
+            "tutorId": "b0000000-0000-4000-8000-0000000000bb",
+            "tutorFirstName": "Bình",
+            "tutorLastName": "Trần",
+            "tutorEmail": "tutor-should-be-filtered@example.com",
+            "subjectId": "s1",
+            "subjectName": "Tiếng Anh",
+            "gradeId": "g1",
+            "gradeName": "Lớp 7",
+            "teachingMode": "ONLINE",
+            "price": 900000,
+            "paymentPeriod": "MONTHLY",
+            "totalLessons": 12,
+            "preferredSchedule": "Tối thứ 3, thứ 5",
+            "schedules": [
+              {
+                "dayOfWeek": 2,
+                "startTime": "19:00",
+                "endTime": "20:30"
+              }
+            ],
+            "startDate": "2026-10-01",
+            "endDate": "2027-02-01",
+            "status": "ACTIVE",
+            "createdByUserId": "99999999-9999-4999-8999-999999999999",
+            "signedByUserId": null,
+            "renewedFromContractId": null,
+            "signedAt": "2026-09-28T09:00:00",
+            "createdAt": "2026-09-01T10:00:00",
+            "updatedAt": "2026-09-02T10:00:00"
+          }
+        ],
+        "page": 0,
+        "size": 100,
+        "totalElements": 2,
+        "totalPages": 1,
+        "first": true,
+        "last": true
+      }
+    },
+    "byArgs": [
+      {
+        "match": {
+          "status": "CANCELLED"
+        },
+        "status": 200,
+        "body": {
+          "content": [],
+          "page": 0,
+          "size": 100,
+          "totalElements": 0,
+          "totalPages": 1,
+          "first": true,
+          "last": true
+        }
+      }
+    ]
+  },
+  "/api/v1/tutors/me/tutor-student-requests": {
+    "default": {
+      "status": 200,
+      "body": {
+        "content": [
+          {
+            "id": "o0000000-0000-4000-8000-000000000002",
+            "tutorFirstName": "An",
+            "studyingRequestId": "r0000000-0000-4000-8000-000000000009",
+            "studyingRequestTitle": "Tìm gia sư Toán lớp 6",
+            "subjectName": "Toán",
+            "gradeName": "Lớp 6",
+            "proposedPrice": 200000,
+            "teachingMode": "ONLINE",
+            "preferredSchedule": "Tối thứ 2",
+            "preferredProvinceName": "Hà Nội",
+            "preferredDistrictName": "Hoàng Mai",
+            "message": "Tôi có 3 năm kinh nghiệm",
+            "status": "ACCEPTED",
+            "nextStep": "CONTRACT_SIGNING",
+            "createdAt": "2026-10-16T09:00:00"
+          },
+          {
+            "id": "o0000000-0000-4000-8000-000000000001",
+            "tutorFirstName": "An",
+            "studyingRequestId": "r0000000-0000-4000-8000-000000000008",
+            "studyingRequestTitle": "Tìm gia sư IELTS",
+            "subjectName": "Tiếng Anh",
+            "gradeName": "Lớp 11",
+            "proposedPrice": 350000,
+            "teachingMode": "OFFLINE",
+            "preferredSchedule": "Sáng chủ nhật",
+            "preferredProvinceName": "Hà Nội",
+            "preferredDistrictName": "Ba Đình",
+            "message": "IELTS 8.0",
+            "status": "PENDING",
+            "nextStep": null,
+            "createdAt": "2026-10-10T09:00:00"
+          }
+        ],
+        "page": 0,
+        "size": 100,
+        "totalElements": 2,
+        "totalPages": 1,
+        "first": true,
+        "last": true
+      }
+    }
+  },
+  "/api/v1/tutors/me/teaching-requests": {
+    "default": {
+      "status": 200,
+      "body": []
+    }
+  },
+  "/api/v1/users/me/wallet/transactions": {
+    "default": {
+      "status": 200,
+      "body": {
+        "content": [
+          {
+            "transactionId": "f0000000-0000-4000-8000-000000000011",
+            "transactionType": "CREDIT",
+            "purpose": "TUTOR_EARNING",
+            "amount": 270000,
+            "balanceAfter": 1500000,
+            "pendingBalanceAfter": 200000,
+            "referenceType": "LESSON",
+            "referenceId": "l0000000-0000-4000-8000-000000000010",
+            "description": "Thu nhập buổi 5 hợp đồng Toán",
+            "status": "COMPLETED",
+            "createdAt": "2026-10-15T13:40:00",
+            "walletId": "w2"
+          }
+        ],
+        "page": 0,
+        "size": 100,
+        "totalElements": 1,
+        "totalPages": 1,
+        "first": true,
+        "last": true
+      }
+    }
+  },
+  "/api/v1/users/me/wallet/withdrawals": {
+    "default": {
+      "status": 200,
+      "body": {
+        "content": [
+          {
+            "withdrawalId": "h0000000-0000-4000-8000-000000000001",
+            "amount": 2000000,
+            "note": "Rút tháng 10",
+            "status": "PROCESSING",
+            "reviewedAt": null,
+            "rejectionReason": null,
+            "completedAt": null,
+            "createdAt": "2026-10-17T10:00:00",
+            "bankAccountNumber": "should-be-filtered-0011223344"
+          }
+        ],
+        "page": 0,
+        "size": 100,
+        "totalElements": 1,
+        "totalPages": 1,
+        "first": true,
+        "last": true
+      }
+    }
+  },
+  "/api/v1/tutors/me/refund-requests": {
+    "default": {
+      "status": 200,
+      "body": {
+        "content": [
+          {
+            "id": "g0000000-0000-4000-8000-000000000005",
+            "contractId": "c0000000-0000-4000-8000-000000000002",
+            "subjectName": "Tiếng Anh",
+            "gradeName": "Lớp 7",
+            "status": "PENDING",
+            "description": "Học viên báo buổi 3 không diễn ra",
+            "disputedLessons": [],
+            "evidences": [],
+            "tutorResponse": null,
+            "tutorRespondedAt": null,
+            "tutorResponseDeadline": "2026-10-22T08:00:00",
+            "refundAmount": null,
+            "tutorShareAmount": null,
+            "rejectionReason": null,
+            "reviewedAt": null,
+            "createdAt": "2026-10-19T08:00:00",
+            "studentEmail": "should-be-filtered@example.com"
+          }
+        ],
+        "page": 0,
+        "size": 100,
+        "totalElements": 1,
+        "totalPages": 1,
+        "first": true,
+        "last": true
+      }
+    }
+  }
+}

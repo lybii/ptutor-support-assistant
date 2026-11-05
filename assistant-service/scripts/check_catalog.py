@@ -27,6 +27,8 @@ import yaml
 _PATH_VARIABLE = re.compile(r"\{[^}]*\}")
 _CLASS_MAPPING = re.compile(r'@RequestMapping\(\s*(?:value\s*=\s*|path\s*=\s*)?"([^"]*)"')
 _GET_MAPPING = re.compile(r'@GetMapping(?:\(\s*(?:value\s*=\s*|path\s*=\s*)?"([^"]*)"[^)]*\)|\(\s*\)|(?=\s))')
+# @GetMapping({"/a", "/b/**"}): nhiều đường dẫn trong một mảng.
+_GET_MAPPING_ARRAY = re.compile(r'@GetMapping\(\s*(?:value\s*=\s*|path\s*=\s*)?\{([^}]*)\}')
 
 
 def normalize_api_path(path: str) -> str:
@@ -44,7 +46,17 @@ def find_backend_get_paths(controller_dir: Path) -> set[str]:
         for get_match in _GET_MAPPING.finditer(source):
             suffix = get_match.group(1) or ""
             paths.add(normalize_api_path(prefix + suffix))
+        for array_match in _GET_MAPPING_ARRAY.finditer(source):
+            for suffix in re.findall(r'"([^"]*)"', array_match.group(1)):
+                paths.add(normalize_api_path(prefix + suffix))
     return paths
+
+
+def is_served(path: str, backend_paths: set[str]) -> bool:
+    """Khớp đúng đường dẫn, hoặc nằm dưới một mapping kết thúc bằng /** ."""
+    if path in backend_paths:
+        return True
+    return any(mapped.endswith("/**") and path.startswith(mapped[:-2]) for mapped in backend_paths)
 
 
 def check_tools(repo: Path) -> list[str]:
@@ -57,7 +69,7 @@ def check_tools(repo: Path) -> list[str]:
         request = tool["request"]
         if request["method"] != "GET":
             problems.append(f"{tool['func_code']}: phương thức {request['method']} (chỉ cho phép GET)")
-        elif normalize_api_path(request["path"]) not in backend_paths:
+        elif not is_served(normalize_api_path(request["path"]), backend_paths):
             problems.append(f"{tool['func_code']}: không thấy controller GET {request['path']}")
     return problems
 
@@ -132,10 +144,6 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--repo", type=Path, default=Path(__file__).resolve().parents[2])
     args = parser.parse_args()
-    if not (args.repo / "backend").is_dir() or not (args.repo / "frontend").is_dir():
-        # Repo tách riêng chỉ có phần tích hợp (integration/), không có toàn bộ backend/frontend để đối chiếu.
-        print("BỎ QUA: cần chạy trong repo đầy đủ có backend/ và frontend/ (dùng --repo).")
-        return 0
     problems = check_tools(args.repo) + check_routes(args.repo)
     for problem in problems:
         print("LỆCH:", problem)
