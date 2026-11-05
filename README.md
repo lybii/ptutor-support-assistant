@@ -2,10 +2,6 @@
 
 Trợ lý hỗ trợ (chatbot RAG + tra cứu dữ liệu) cho **PTutor**, nền tảng kết nối học viên và gia sư.
 
-> Đây là module tôi thực hiện trong đồ án nhóm PTutor. Repo này chỉ chứa phần do tôi viết (lịch sử commit
-> được giữ nguyên). Các phần còn lại của nền tảng (đăng ký, hợp đồng, thanh toán...) thuộc các thành viên khác
-> và không có ở đây.
-
 ## Trợ lý làm được gì
 
 - Trả lời câu hỏi về cách dùng nền tảng, dựa trên **kho tri thức 66 tài liệu Markdown** và **trích dẫn nguồn** cho từng ý.
@@ -29,11 +25,11 @@ Frontend (React)  ──JWT──▶  Backend (Spring Boot)  ──X-Internal-To
 | [`assistant-service/`](assistant-service/) | Lõi Python: harness agent, truy xuất, công cụ, eval, test |
 | [`knowledge-base/`](knowledge-base/) | Kho tri thức Markdown (front matter, route màn hình) |
 | [`tool-catalog/`](tool-catalog/) | Danh mục công cụ tra cứu (`tools.yaml`): đường dẫn, trường được phép trả về |
-| [`integration/backend/`](integration/backend/) | Phần tôi thêm vào backend Java: proxy, rate limiter, yêu cầu hỗ trợ, migration Flyway |
-| [`integration/frontend/`](integration/frontend/) | Phần tôi thêm vào frontend: widget chat, trang quản trị kho tri thức và yêu cầu hỗ trợ |
+| [`integration/backend/`](integration/backend/) | Tích hợp backend Spring Boot: proxy, rate limiter, yêu cầu hỗ trợ, migration Flyway |
+| [`integration/frontend/`](integration/frontend/) | Tích hợp frontend React: widget chat, trang quản trị kho tri thức và yêu cầu hỗ trợ |
 | [`docs/`](docs/) | Thiết kế (phạm vi, kiến trúc, luồng hỏi đáp, bảo mật, eval) và nhật ký triển khai |
 
-`integration/` là code trích ra từ repo nhóm, để đọc. Nó cần phần còn lại của backend/frontend mới build được.
+`integration/` là các module tích hợp vào ứng dụng PTutor (backend, frontend), không build độc lập.
 
 ## Kết quả đánh giá
 
